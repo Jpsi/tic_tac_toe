@@ -1,27 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: null};
-    this.changeValue = this.changeValue.bind(this)
-  }
+export default function Square() {
+  const [value, setValue] = useState(null);
 
-  changeValue() {
-    if (this.state.value == null) {
-      this.setState({value: "X"});
+  function changeValue() {
+    if (value == null) {
+      setValue("X");
     } else {
-      this.setState({value: null})
+      setValue(null);
     }
   }
 
-  render() {
-    return (
-      <button className="square" onClick={this.changeValue}>
-      {this.state.value}
-      </button>
-    );
-  }
+  return (
+    <button className="square" onClick={changeValue}>
+      {value}
+    </button>
+  );
 }
-
-export default Square

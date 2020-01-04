@@ -1,29 +1,17 @@
 import React from 'react';
 import Square from './Square.js'
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square value={i}/>;
-  }
+export default function Board() {
+  const status = 'Next player: X';
 
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {[0, 1, 2].map((x) => this.renderSquare(x))}
+  return (
+    <div>
+      <div className="status">{status}</div>
+      {[[0,1,2], [3,4,5], [6,7,8]].map((a, index_row) =>
+        <div className="board-row" key={index_row}>
+          {a.map((x, index_col) => <Square key={index_col} value={x}/>)}
         </div>
-        <div className="board-row">
-          {[3, 4, 5].map((x) => this.renderSquare(x))}
-        </div>
-        <div className="board-row">
-          {[6, 7, 8].map((x) => this.renderSquare(x))}
-        </div>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
-
-export default Board
