@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Square from './Square.js'
 
 const Board = () => {
-  const status = 'Next player: X';
+  const [move, setMove] = useState('X');
 
   const [squares, setSquares] = useState([
     [null, null, null],
@@ -10,14 +10,24 @@ const Board = () => {
     [null, null, null]]);
 
   const handleClick = (i,j) => {
-    let new_squares = squares.slice()
-    new_squares[i][j] = 'X';
-    setSquares(new_squares)
+    if (squares[i][j] != null) {
+      alert("You can only click on empty cells")
+    } else {
+      let new_squares = squares.slice()
+      if (move === 'X') {
+        new_squares[i][j] = 'X';
+        setMove('O')
+      } else {
+        new_squares[i][j] = 'O';
+        setMove('X')
+      }
+      setSquares(new_squares)
+    }
   }
 
   return (
     <div>
-      <div className="status">{status}</div>
+      <div className="status">Next player: {move}</div>
       {squares.map((a, index_row) =>
         <div className="board-row" key={index_row.toString()}>
           {a.map((x, index_col) => <Square
