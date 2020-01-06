@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Square() {
-  const [value, setValue] = useState(null);
-
-  function changeValue() {
-    if (value == null) {
-      setValue("X");
-    } else {
-      setValue(null);
-    }
-  }
-
+const Square = (props) => {
   return (
-    <button className="square" onClick={changeValue}>
-      {value}
+    <button className="square" onClick={props.onClick}>
+      {props.value}
     </button>
   );
 }
+
+export default Square
