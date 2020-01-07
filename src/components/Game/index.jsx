@@ -1,5 +1,6 @@
 import React from 'react';
-import Board from './Board.js'
+import Board from '../Board'
+import './index.css'
 
 const Game = () => {
   return (

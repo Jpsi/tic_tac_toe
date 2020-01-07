@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Square from './Square.js'
+import Square from '../Square'
+import './index.css'
 
 const Board = () => {
   const [move, setMove] = useState('X');
