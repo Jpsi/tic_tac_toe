@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Square from '../Square'
 import './index.css'
+import {getCurrentMove} from '../../utils'
 
 const Board = () => {
-  const [move, setMove] = useState('X');
-
   const [squares, setSquares] = useState([
     [null, null, null],
     [null, null, null],
@@ -15,20 +14,14 @@ const Board = () => {
       alert("You can only click on empty cells")
     } else {
       let new_squares = squares.slice()
-      if (move === 'X') {
-        new_squares[i][j] = 'X';
-        setMove('O')
-      } else {
-        new_squares[i][j] = 'O';
-        setMove('X')
-      }
+      new_squares[i][j] = getCurrentMove(squares);
       setSquares(new_squares)
     }
   }
 
   return (
     <div>
-      <div className="status">Next player: {move}</div>
+      <div className="status">Next player: {getCurrentMove(squares)}</div>
       {squares.map((a, index_row) =>
         <div className="board-row" key={index_row.toString()}>
           {a.map((x, index_col) => <Square
