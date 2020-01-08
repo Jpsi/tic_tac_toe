@@ -3,7 +3,7 @@ import './index.css'
 
 const Square = (props) => {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button className="square" data-index_row={props.index_row} data-index_col={props.index_col} onClick={props.onClick}>
       {props.value}
     </button>
   );

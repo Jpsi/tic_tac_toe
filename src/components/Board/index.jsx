@@ -9,7 +9,9 @@ const Board = () => {
     [null, null, null],
     [null, null, null]]);
 
-  const handleClick = (i,j) => {
+  const handleClick = (event) => {
+    const i = event.target.dataset.index_row
+    const j = event.target.dataset.index_col
     if (squares[i][j] != null) {
       alert("You can only click on empty cells")
     } else {
@@ -26,8 +28,10 @@ const Board = () => {
         <div className="board-row" key={index_row.toString()}>
           {a.map((x, index_col) => <Square
             key={index_row.toString() + index_col.toString()} 
+            index_row = {index_row}
+            index_col = {index_col}
             value={squares[index_row][index_col]}
-            onClick={() => handleClick(index_row, index_col)}/>
+            onClick={handleClick}/>
           )}
         </div>
       )}
