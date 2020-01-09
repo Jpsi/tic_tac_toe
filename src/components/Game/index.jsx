@@ -1,6 +1,6 @@
-import React from 'react';
-import Board from '../Board'
-import './Game.css'
+import React from "react";
+import Board from "../Board";
+import "./Game.css";
 
 const Game = () => {
   return (
@@ -14,6 +14,6 @@ const Game = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Game
+export default Game;
