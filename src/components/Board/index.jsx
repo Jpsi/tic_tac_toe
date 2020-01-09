@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Square from '../Square'
-import './index.css'
 import {getCurrentMove} from '../../utils'
+import './Board.css'
 
 const Board = () => {
   const [squares, setSquares] = useState([
