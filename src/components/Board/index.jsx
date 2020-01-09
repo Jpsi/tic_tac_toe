@@ -4,11 +4,9 @@ import "./Board.css";
 import { getCurrentMove, getWinner } from "../../utils";
 
 const Board = () => {
-  const [squares, setSquares] = useState([
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-  ]);
+  const [squares, setSquares] = useState(
+    Array.from({ length: 3 }, () => Array.from({ length: 3 }, () => null))
+  );
 
   const handleClick = event => {
     const i = event.target.dataset.index_row;
