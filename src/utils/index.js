@@ -43,4 +43,4 @@ const matrixContainsLine = matrix => {
   return winner;
 };
 
-export { getCurrentMove, getWinner };
+export { getCurrentMove, getWinner, matrixContainsLine};
