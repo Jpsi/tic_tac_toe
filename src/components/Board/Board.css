@@ -4,6 +4,8 @@
   display: table;
 }
 
-.status {
-  margin-bottom: 10px;
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
